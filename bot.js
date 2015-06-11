@@ -27,11 +27,11 @@ function generateTweet()
 				   {name: "café au lait ", milk: true, steamed_milk: false, milk_foam: false, steamed_half: false, whipped_cream: false, water: false, syrup: false, espresso: false, coffee: true},
 				   {name: "frappé ", milk: true, steamed_milk: false, milk_foam: false, steamed_half: false, whipped_cream: true, water: false, syrup: false, espresso: true, coffee: false}];
 	var milks = ["whole milk ", "2% milk ", "skim milk ", "almond milk ", "cream ", "organic milk "];
-	var espAmount = ["", "double ", "triple ", "quad "];
+	var espAmount = ["double ", "triple ", "quad "];
 
 	//http://stackoverflow.com/questions/1527803/generating-random-numbers-in-javascript-in-a-specific-range
 	var coffee = coffees[randomNum(coffees.length - 1, 0)];
-	if(coffee.espresso)
+	if(coffee.espresso && chance(0.30))
 	{
 		var amount = espAmount[randomNum(espAmount.length - 1, 0)];
 		tweet += amount;
@@ -109,14 +109,14 @@ function generateTweet()
 
 	if(coffee.whipped_cream)
 	{
-		var drizzle = syrupFlavors[randomNum(syrupFlavors - 1, 0)];
+		var drizzle = syrupFlavors[randomNum(syrupFlavors.length - 1, 0)];
 		if(hasWith)
 		{
-			tweet += ("and " + drizzle + " drizzle");
+			tweet += ("and " + drizzle + "drizzle");
 		}
 		else
 		{
-			tweet += ("with " + drizzle + " drizzle");
+			tweet += ("with " + drizzle + "drizzle");
 		}
 	}
 
